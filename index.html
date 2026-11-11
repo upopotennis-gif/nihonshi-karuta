@@ -160,6 +160,42 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .doc ol.cr li{font-size:14px;padding:3px 0;border-bottom:1px dotted #cfc5aa;overflow-wrap:anywhere}
 .doc a{color:var(--ai)}
 .doc ol.cr a{display:block;padding:12px 0}
+/* 横長の場（パソコン・横向き）は6枚×2段 */
+@container (min-aspect-ratio: 13/10){
+  .field{width:min(100cqw,calc(100cqh * 330 / 182));aspect-ratio:330/182;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(2,1fr);gap:8px}
+}
+/* パソコン幅 */
+@media (min-width:800px){
+  #app{max-width:760px}
+  #app:has(.game){max-width:1100px}
+  .hero{padding:44px 16px 36px;border-radius:0 0 16px 16px}
+  .hero h1{font-size:36px}
+  .hero p{font-size:16px}
+  .pad{padding:0 24px 48px}
+  .seg button{font-size:17px;min-height:52px}
+  .game{background:#e9e2d0}
+  .bar{padding:8px 14px;font-size:16px}
+  .bar .mid b{font-size:19px}
+  .bar button{font-size:15px;padding:0 14px}
+  .yomi{margin:14px 14px 0;padding:14px 24px 18px}
+  .yomi .q{font-size:28px;height:5.2em}
+  .fieldwrap{margin:14px}
+  .card{cursor:pointer}
+  .card:hover{transform:translateY(-4px);box-shadow:0 6px 14px rgba(0,0,0,.3)}
+  .card:active{transform:scale(.97)}
+  .sheet{left:0;right:0;margin:0 auto;max-width:720px;padding:20px 24px 24px}
+  .sheet .pic{flex-basis:130px}
+  .sheet .name{font-size:32px}
+  .sheet .full{font-size:17px}
+  .sheet .res{font-size:20px}
+  .banner{left:0;right:0;margin:0 auto;max-width:720px;font-size:17px}
+  .toast{font-size:18px;padding:12px 24px}
+  .cho{display:grid;grid-template-columns:1fr 1fr;column-gap:32px;align-content:start}
+  .cho h2{grid-column:1/-1}
+  .log li,.rank li{font-size:17px}
+  .seg button:not(:disabled):hover,.links button:hover{border-color:var(--ai)}
+  .start:not(:disabled):hover,.sheet .next:hover{filter:brightness(1.08)}
+}
 </style>
 </head>
 <body>
@@ -193,6 +229,12 @@ const canSpeak='speechSynthesis' in window;
 
 /* ---------- ホーム ---------- */
 function seg(key,opts){return `<div class="seg">${opts.map(o=>`<button data-set="${key}" data-val="${o[0]}" aria-pressed="${String(S[key])===String(o[0])}" ${o[3]?'disabled':''}>${o[1]}${o[2]?`<small>${o[2]}</small>`:''}</button>`).join('')}</div>`;}
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  if(e.target.closest&&e.target.closest('input,button,a'))return;
+  const b=document.querySelector('.sheet .next')||document.getElementById('onext');
+  if(b&&!b.disabled){e.preventDefault();b.click();}
+});
 let SCREEN=null;
 function home(){
   SCREEN=home;clearTimers();hush();if(window.onlineLeave)onlineLeave(true);
