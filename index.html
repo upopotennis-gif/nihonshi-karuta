@@ -30,7 +30,8 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .seg button:disabled{opacity:.4}
 .start{display:block;width:100%;margin-top:26px;min-height:56px;border-radius:10px;background:var(--red);color:#fff;font-size:19px;font-weight:700;letter-spacing:.2em;font-family:var(--min)}
 .links{display:flex;gap:8px;margin-top:14px}
-.links button{flex:1;min-height:46px;border-radius:8px;border:1.5px solid var(--ai);color:var(--ai);font-weight:600;background:#fff;font-size:14px}
+.links button{flex:1;min-height:46px;border-radius:8px;border:1.5px solid var(--ai);color:var(--ai);font-weight:600;background:#fff;font-size:15px;padding:6px 8px;line-height:1.35}
+.links button small{display:block;font-size:14px;font-weight:400;color:var(--sub)}
 .note{margin-top:14px;font-size:14px;color:var(--sub);text-align:center;line-height:1.7}
 
 /* ゲーム */
@@ -58,7 +59,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .card .in{width:100%;height:100%;border-radius:3px;background:var(--kinari);overflow:hidden;display:flex;align-items:center;justify-content:center}
 .card.name{background:var(--ai) url(asanoha.jpg) center/160px}
 .card.name .in{width:68%;height:82%;margin:9% auto 0;box-shadow:0 0 0 1px var(--kinari),0 0 0 2px var(--ai),0 0 0 3px var(--kinari)}
-.nm{writing-mode:vertical-rl;font-family:var(--min);font-weight:700;font-size:min(14.5cqh,31cqw);letter-spacing:.06em;line-height:1.15;white-space:nowrap;display:flex;align-items:center;gap:1px}
+.nm{writing-mode:vertical-rl;font-family:var(--min);font-weight:700;font-size:min(14.5cqh,31cqw);letter-spacing:.06em;line-height:1.15;white-space:nowrap;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
 .nm small{font-size:max(.7em,14px);font-weight:600;letter-spacing:0}
 .card img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .mirror{width:100%;height:100%;background:#efe6cf;display:flex;align-items:center;justify-content:center}
@@ -85,6 +86,45 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .sheet .yo{font-size:14px;color:var(--sub);margin-bottom:6px}
 .sheet .full{font-size:15px;line-height:1.7}
 .sheet .next{display:block;width:100%;margin-top:14px;min-height:52px;border-radius:10px;background:var(--ai);color:#fff;font-size:17px;font-weight:700;letter-spacing:.1em}
+
+/* みんなで遊ぶ */
+.inp{display:block;width:100%;min-height:52px;border:1.5px solid var(--gold);border-radius:8px;background:#fff;font:inherit;font-size:18px;padding:8px 12px;color:var(--ink)}
+.inp.code{font-size:26px;letter-spacing:.3em;text-align:center;font-weight:700}
+.flab{display:block;font-size:14px;color:var(--sub);font-weight:600;margin:14px 0 6px}
+.box{background:#fff;border:1.5px solid var(--gold);border-radius:12px;padding:4px 16px 18px;margin-top:18px}
+.box h2{font-family:var(--min);font-size:18px;margin-top:14px}
+.box .start{margin-top:16px}
+.err{color:var(--red);font-size:15px;font-weight:700;margin-top:10px;min-height:1.5em}
+.codebig{font-family:var(--min);font-weight:700;font-size:clamp(44px,14vw,120px);letter-spacing:.12em;text-align:center;color:var(--ai);line-height:1.2}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips span{background:#fff;border:1.5px solid var(--gold);border-radius:999px;padding:4px 12px;font-size:15px}
+.chips span.me{background:var(--ai);border-color:var(--ai);color:#fff}
+.rank{list-style:none;margin-top:14px;border-top:1px solid #dcd3bd}
+.rank li{display:flex;gap:10px;align-items:center;padding:9px 2px;border-bottom:1px solid #dcd3bd;font-size:16px}
+.rank li b{width:2.6em;font-family:var(--min)}
+.rank li span{flex:1;overflow-wrap:anywhere}
+.rank li.me{background:#fff7dc;font-weight:700}
+.sheet .wait{margin-top:12px;font-size:14px;color:var(--sub);text-align:center}
+.sheet .cls{margin-top:10px;font-size:15px;font-weight:700;color:var(--ai)}
+.banner{position:absolute;left:8px;right:8px;bottom:max(10px,env(safe-area-inset-bottom));background:var(--ai);color:#fff;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:700;text-align:center;z-index:5;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+/* 教室大会・先生の画面 */
+#app.wide{max-width:1100px}
+.hostv{min-height:100dvh;height:auto;overflow:visible}
+.hostv .hq{background:var(--paper);margin:12px;border-radius:12px;border:2px solid var(--gold);padding:20px 24px;font-family:var(--min);font-weight:700;font-size:clamp(24px,5.2vw,60px);line-height:1.6;min-height:4.9em;display:flex;flex-wrap:wrap;align-content:center}
+.hostv .hq span.ph{display:inline-block;white-space:nowrap}
+.hostv .hq i{font-style:normal;opacity:0}
+.hostv .hq i.on{opacity:1}
+.hostv .hinfo{text-align:center;font-size:clamp(16px,2.4vw,24px);font-weight:700;color:var(--ai);padding:4px 12px}
+.hostv .hres{display:flex;gap:20px;margin:8px 12px 20px;background:#fff;border-radius:12px;padding:16px;flex-wrap:wrap;align-items:flex-start}
+.hostv .hres .pic{flex:0 0 clamp(96px,18vw,200px);aspect-ratio:55/91;border-radius:8px;overflow:hidden;border:4px solid var(--ai);background:var(--kinari)}
+.hostv .hres .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.hostv .hres .inf{flex:1 1 240px;min-width:0}
+.hostv .hres .name{font-family:var(--min);font-weight:700;font-size:clamp(28px,5vw,56px);line-height:1.25}
+.hostv .hres .name small{font-size:.5em}
+.hostv .hres .era{font-size:clamp(14px,1.8vw,20px);color:var(--sub)}
+.hostv .hres .got{font-size:clamp(18px,2.6vw,28px);font-weight:700;color:var(--ok);margin-top:8px}
+.hostv .hres .rank li{font-size:clamp(16px,2.2vw,24px)}
+.hostv .hres .start{max-width:360px}
 
 /* 結果・札帳・説明 */
 .top{position:sticky;top:0;background:var(--ai);color:var(--kinari);display:flex;align-items:center;gap:8px;padding:8px;z-index:3}
@@ -144,6 +184,7 @@ const CPU={weak:['弱',.9,1.0,2500],mid:['中',.6,.95,0],strong:['強',.35,.65,0
 const rnd=(a,b)=>a+Math.random()*(b-a);
 const weight=no=>1+(stat(no).last==='ng'?2:0);
 const faceHTML=c=>c.img?`<img src="${c.img}" alt="">`:`<span class="mirror">${MIRROR}</span>`;
+const eraName=c=>c.era==='幕末'?'幕末':c.era+'時代';
 const nameHTML=c=>c.name+(c.sub?`<small>（${c.sub}）</small>`:'');
 let timers=[];const later=(f,ms)=>{const t=setTimeout(f,ms);timers.push(t);return t;};
 const clearTimers=()=>{timers.forEach(clearTimeout);timers=[];};
@@ -152,8 +193,9 @@ const canSpeak='speechSynthesis' in window;
 
 /* ---------- ホーム ---------- */
 function seg(key,opts){return `<div class="seg">${opts.map(o=>`<button data-set="${key}" data-val="${o[0]}" aria-pressed="${String(S[key])===String(o[0])}" ${o[3]?'disabled':''}>${o[1]}${o[2]?`<small>${o[2]}</small>`:''}</button>`).join('')}</div>`;}
+let SCREEN=null;
 function home(){
-  clearTimers();hush();
+  SCREEN=home;clearTimers();hush();if(window.onlineLeave)onlineLeave(true);
   if(S.deck==='review'&&!deckCards('review').length)S.deck='all';
   const got=CARDS.filter(c=>stat(c.no).ok>0).length, weak=deckCards('review').length;
   const n=deckCards(S.deck).length;
@@ -166,6 +208,7 @@ function home(){
    <div class="group"><h2>読む枚数</h2>${seg('count',[[10,'10枚'],[20,'20枚'],[0,'ぜんぶ']])}</div>
    ${canSpeak?`<div class="group"><h2>読み上げの音声</h2>${seg('voice',[[false,'なし'],[true,'あり']])}</div>`:''}
    <button class="start" id="go">はじめる</button>
+   <div class="group"><h2>みんなで遊ぶ</h2><div class="links" style="margin-top:0"><button data-go="friend">友だち対戦<small>2〜4人・早い者勝ち</small></button><button data-go="class">教室大会<small>クラスみんなで</small></button></div></div>
    <div class="links"><button data-go="cho">札帳</button><button data-go="how">遊び方</button><button data-go="credit">出典</button></div>
    <p class="note">これまでに取れた札 ${got} / ${CARDS.length} 枚${weak?`　苦手札 ${weak} 枚`:''}<br>この束で読むのは ${Math.min(S.count||n,n)} 枚</p>
   </div>`;
@@ -173,12 +216,13 @@ function home(){
 }
 app.addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;
-  if(b.dataset.set){let v=b.dataset.val;if(b.dataset.set==='count')v=+v;if(b.dataset.set==='voice')v=v==='true';S[b.dataset.set]=v;save();const y=window.scrollY;home();window.scrollTo(0,y);}
+  if(b.dataset.set){let v=b.dataset.val;if(b.dataset.set==='count')v=+v;if(b.dataset.set==='voice')v=v==='true';S[b.dataset.set]=v;save();const y=window.scrollY;(SCREEN||home)();window.scrollTo(0,y);}
   else if(b.id==='go')startGame();
   else if(b.dataset.go==='home')home();
   else if(b.dataset.go==='cho')cho();
   else if(b.dataset.go==='how')how();
   else if(b.dataset.go==='credit')credit();
+  else if(b.dataset.go==='friend'||b.dataset.go==='class')onlineHome(b.dataset.go);
   else if(b.dataset.go==='again')startGame();
   else if(b.dataset.go==='review'){S.deck='review';save();startGame();}
 });
@@ -186,6 +230,7 @@ app.addEventListener('click',e=>{
 /* ---------- ゲーム ---------- */
 let g=null;
 function startGame(){
+  SCREEN=null;
   const cards=deckCards(S.deck);if(!cards.length){home();return;}
   // 苦手札が先に出やすいように重みつきで並べる
   const order=cards.map(c=>[Math.pow(Math.random(),1/weight(c.no)),c.no]).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);
@@ -208,10 +253,13 @@ function drawBar(){
   document.getElementById('mid').innerHTML=g.mode==='solo'?`<b>${g.score} 点</b><span>ひとり稽古・${deckName(g.deck)}</span>`:`<b>あなた ${g.me} － ${g.cpuN} CPU</b><span>CPU対戦（${CPU[g.cpu][0]}）・${deckName(g.deck)}</span>`;
   document.getElementById('cnt').textContent=`${Math.min(g.round+1,g.N)} / ${g.N} 枚目`;
 }
+function fieldHTML(slots,face){
+  return slots.map(no=>{if(!no)return '<div class="slot"></div>';const c=byNo[no];
+    return `<div class="slot" style="border:0"><button class="card ${face}" data-no="${no}" aria-label="${face==='name'?c.name:'肖像の札'}"><span class="in">${face==='name'?`<span class="nm">${nameHTML(c)}</span>`:faceHTML(c)}</span></button></div>`;}).join('');
+}
 function drawField(){
   const f=document.getElementById('field');f.classList.remove('lock');
-  f.innerHTML=g.slots.map(no=>{if(!no)return '<div class="slot"></div>';const c=byNo[no];
-    return `<div class="slot" style="border:0"><button class="card ${g.face}" data-no="${no}" aria-label="${g.face==='name'?c.name:'肖像の札'}"><span class="in">${g.face==='name'?`<span class="nm">${nameHTML(c)}</span>`:faceHTML(c)}</span></button></div>`;}).join('');
+  f.innerHTML=fieldHTML(g.slots,g.face);
 }
 function nextRound(){
   clearTimers();hush();
@@ -271,7 +319,7 @@ function settle(who){
   const last=g.round>=g.N||g.slots.filter(Boolean).length<=1&&!g.pool.length;
   const sh=document.createElement('div');sh.className='sheet';
   sh.innerHTML=`<div class="res ${cls}">${head}</div><div class="row"><div class="pic">${faceHTML(c)}</div><div class="inf">
-    <div class="era">No.${c.no}　${c.era}時代</div><div class="name">${nameHTML(c)}</div><div class="yo">${c.yomi}</div><div class="full">${c.q.join('')}</div></div></div>
+    <div class="era">${eraName(c)}</div><div class="name">${nameHTML(c)}</div><div class="yo">${c.yomi}</div><div class="full">${c.q.join('')}</div></div></div>
     <button class="next">${last?'結果を見る':'次の札へ'}</button>`;
   document.querySelector('.game').appendChild(sh);
   sh.querySelector('.next').onclick=()=>{
@@ -301,7 +349,7 @@ function finish(){
 
 /* ---------- 札帳 ---------- */
 function cho(){
-  const sec=DECKS.slice(1,5).map(([d,name])=>`<h2>${name}</h2>`+deckCards(d).map(c=>{const s=stat(c.no);
+  const sec=DECKS.slice(1,5).map(([d,name])=>`<h2>${name}</h2>`+[...deckCards(d)].sort((a,b)=>a.year-b.year||a.no-b.no).map(c=>{const s=stat(c.no);
     const bd=!s.n?'<span class="badge no">まだ</span>':s.last==='ng'?'<span class="badge ng">苦手</span>':`<span class="badge ok">取れた ${s.ok}回</span>`;
     return `<div class="item"><div class="pic">${faceHTML(c)}</div><div class="t"><div class="h"><b>${nameHTML(c)}</b><span>${c.yomi}・${c.era}</span>${bd}</div><p>${c.q.join('')}</p></div></div>`;}).join('')).join('');
   app.innerHTML=`<div class="top"><button data-go="home">ホーム</button><h1>札帳</h1></div><div class="pad cho">${sec}</div>`;
@@ -314,6 +362,8 @@ function how(){
   <h2>基本</h2><ul><li>場に取り札が${FIELD}枚並びます。</li><li>読み札が頭から少しずつ出ます。だれのことか分かったら、その札をタップします。</li><li>取ったあとに、肖像・名前・時代・読み札の全文が出ます。</li><li>取られた場所には、山から次の札が入ります。</li></ul>
   <h2>ひとり稽古</h2><ul><li>早く取るほど高得点です（読み始めで100点、読み終わりで30点）。</li><li>お手つきは${OTE}点の減点。読み終わって${WAIT_MS/1000}秒たつと時間切れです。</li></ul>
   <h2>CPU対戦</h2><ul><li>取った枚数で勝負します。</li><li>お手つきをすると、その札は休みになり、CPUが取ります。</li></ul>
+  <h2>友だち対戦（2〜4人）</h2><ul><li>1人が「部屋をつくる」を押し、出てきた合言葉（6けた）を友だちに伝えます。友だちは合言葉とニックネームを入れて「入る」。</li><li>同じ場を見て、先に正しい札をタップした人が取ります。お手つきをすると、その札は休みです。</li><li>取った枚数で順位が決まります。</li></ul>
+  <h2>教室大会</h2><ul><li>先生が「大会をひらく」を押し、その画面をスクリーンに映します。生徒は合言葉とニックネームを入れて入ります。</li><li>全員が自分のスマホで同じ札を取ります。早く取るほど高得点で、1枚ごとに取れた人数と上位が出ます。</li><li>次の札には先生が進めます。</li><li>ニックネームに本名は入れないでください。</li></ul>
   <h2>苦手札</h2><ul><li>お手つきをした札、取られた札、時間切れの札は「苦手札」になり、次から出やすくなります。</li><li>お手つきなしで取ると、苦手札から外れます。</li><li>記録はこの端末の中だけに残ります。</li></ul>
   <h2>場に並べる面</h2><ul><li>「名前」は人物名の面、「肖像」は絵や写真の面を並べます。肖像は資料集で見る顔と人物を結びつける練習です。</li></ul></div>`;
   window.scrollTo(0,0);
@@ -321,11 +371,12 @@ function how(){
 function credit(){
   app.innerHTML=`<div class="top"><button data-go="home">ホーム</button><h1>出典</h1></div><div class="pad doc">
   <h2>肖像について</h2><ul><li>古代・中世の肖像の多くは、後の時代に描かれたり、伝承にもとづいたりしたものです。</li><li>No.1 卑弥呼は肖像が伝わっていないため、魏から贈られた「銅鏡百枚」にちなむ銅鏡の図を置きました（図は自作）。</li><li>No.12 源頼朝は神護寺の「伝源頼朝像」です。描かれているのは足利直義だという説もあります。</li><li>No.33 西郷隆盛の写真は残っていません。使ったのは石川静正の肖像画です。</li></ul>
-  <h2>画像の出典（Wikimedia Commons）</h2><p>No.49・50 以外はパブリックドメインです。No.49・50 は内閣官房内閣広報室の写真で、CC BY 4.0 にもとづいて使っています。どの画像も切り抜き・縮小をしています。</p>
+  <h2>画像の出典（Wikimedia Commons）</h2><p>${(()=>{const cc=CARDS.filter(c=>c.img&&!/^(Public domain|CC0|PD)/i.test(c.license||''));return cc.length?`${cc.map(c=>c.name).join('、')} は首相官邸・内閣広報室の写真で、CC BY 4.0 にもとづいて使っています。それ以外はパブリックドメインです。`:'すべてパブリックドメインです。';})()}どの画像も切り抜き・縮小をしています。</p>
   <ol class="cr">${CARDS.filter(c=>c.img).map(c=>`<li>${c.no}　${c.name}　<a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g,'_'))}" target="_blank" rel="noopener">${c.file}</a>　${c.license}</li>`).join('')}</ol></div>`;
   window.scrollTo(0,0);
 }
-home();
 </script>
+<script src="online.js"></script>
+<script>if(!onlineBoot())home();</script>
 </body>
 </html>
