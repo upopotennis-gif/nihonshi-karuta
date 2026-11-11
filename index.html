@@ -60,6 +60,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .card.name{background:var(--ai) url(asanoha.jpg) center/160px}
 .card.name .in{width:68%;height:82%;margin:9% auto 0;box-shadow:0 0 0 1px var(--kinari),0 0 0 2px var(--ai),0 0 0 3px var(--kinari)}
 .nm{writing-mode:vertical-rl;font-family:var(--min);font-weight:700;font-size:min(14.5cqh,31cqw);letter-spacing:.06em;line-height:1.15;white-space:nowrap;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.nm.l6{font-size:min(12cqh,31cqw);letter-spacing:0}
 .nm small{font-size:max(.7em,14px);font-weight:600;letter-spacing:0}
 .card img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .mirror{width:100%;height:100%;background:#efe6cf;display:flex;align-items:center;justify-content:center}
@@ -297,7 +298,7 @@ function drawBar(){
 }
 function fieldHTML(slots,face){
   return slots.map(no=>{if(!no)return '<div class="slot"></div>';const c=byNo[no];
-    return `<div class="slot" style="border:0"><button class="card ${face}" data-no="${no}" aria-label="${face==='name'?c.name:'肖像の札'}"><span class="in">${face==='name'?`<span class="nm">${nameHTML(c)}</span>`:faceHTML(c)}</span></button></div>`;}).join('');
+    return `<div class="slot" style="border:0"><button class="card ${face}" data-no="${no}" aria-label="${face==='name'?c.name:'肖像の札'}"><span class="in">${face==='name'?`<span class="nm${c.name.length>=6?" l6":""}">${nameHTML(c)}</span>`:faceHTML(c)}</span></button></div>`;}).join('');
 }
 function drawField(){
   const f=document.getElementById('field');f.classList.remove('lock');
@@ -412,7 +413,7 @@ function how(){
 }
 function credit(){
   app.innerHTML=`<div class="top"><button data-go="home">ホーム</button><h1>出典</h1></div><div class="pad doc">
-  <h2>肖像について</h2><ul><li>古代・中世の肖像の多くは、後の時代に描かれたり、伝承にもとづいたりしたものです。</li><li>No.1 卑弥呼は肖像が伝わっていないため、魏から贈られた「銅鏡百枚」にちなむ銅鏡の図を置きました（図は自作）。</li><li>No.12 源頼朝は神護寺の「伝源頼朝像」です。描かれているのは足利直義だという説もあります。</li><li>No.33 西郷隆盛の写真は残っていません。使ったのは石川静正の肖像画です。</li></ul>
+  <h2>肖像について</h2><ul><li>古代・中世の肖像の多くは、後の時代に描かれたり、伝承にもとづいたりしたものです。</li><li>No.1 卑弥呼は肖像が伝わっていないため、魏から贈られた「銅鏡百枚」にちなむ銅鏡の図を置きました（図は自作）。</li><li>No.12 源頼朝は神護寺の「伝源頼朝像」です。描かれているのは足利直義だという説もあります。</li><li>No.33 西郷隆盛の写真は残っていません。使ったのは石川静正の肖像画です。</li><li>天武天皇・持統天皇・藤原不比等・清少納言・紫式部・北条政子・松尾芭蕉などは、後の時代に描かれた想像の肖像です。行基は木像の写真です。</li></ul>
   <h2>画像の出典（Wikimedia Commons）</h2><p>${(()=>{const cc=CARDS.filter(c=>c.img&&!/^(Public domain|CC0|PD)/i.test(c.license||''));return cc.length?`${cc.map(c=>c.name).join('、')} は首相官邸・内閣広報室の写真で、CC BY 4.0 にもとづいて使っています。それ以外はパブリックドメインです。`:'すべてパブリックドメインです。';})()}どの画像も切り抜き・縮小をしています。</p>
   <ol class="cr">${CARDS.filter(c=>c.img).map(c=>`<li>${c.no}　${c.name}　<a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g,'_'))}" target="_blank" rel="noopener">${c.file}</a>　${c.license}</li>`).join('')}</ol></div>`;
   window.scrollTo(0,0);
